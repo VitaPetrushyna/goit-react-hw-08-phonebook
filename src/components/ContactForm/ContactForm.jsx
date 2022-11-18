@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { addContact, fetchContacts } from 'redux/operations';
+import { addContact, fetchContacts } from 'redux/contacts/operations';
 
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 
 import { Form, AddBtn, InputData, LabelData } from './ContactForm.styled';
 
-export default function ContactForm() {
+export function ContactForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
 
