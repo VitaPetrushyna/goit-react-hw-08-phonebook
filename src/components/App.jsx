@@ -2,6 +2,7 @@ import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { refreshUser } from 'redux/auth/auth-operations';
+import { fetchContacts } from 'redux/contacts/operations';
 import { useAuth } from 'hooks';
 
 import { Layout } from './Layout';
@@ -24,6 +25,7 @@ export function App() {
 
   useEffect(() => {
     dispatch(refreshUser());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return isRefreshing ? (

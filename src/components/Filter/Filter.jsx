@@ -4,7 +4,7 @@ import { getFilter } from '../../redux/contacts/selectors';
 
 import { FindLabel, FindInput } from './Filter.styled';
 
-const Filter = () => {
+export const Filter = () => {
   const filter = useSelector(getFilter);
 
   const dispatch = useDispatch();
@@ -27,5 +27,3 @@ const Filter = () => {
     </FindLabel>
   );
 };
-
-export default Filter;
