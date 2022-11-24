@@ -8,7 +8,7 @@ import { Form, AddBtn, InputData, LabelData } from './ContactForm.styled';
 
 export function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setPhone] = useState('');
 
   const dispatch = useDispatch();
 
@@ -24,7 +24,7 @@ export function ContactForm() {
         setName(value);
         break;
 
-      case 'phone':
+      case 'number':
         setPhone(value);
         break;
 
@@ -36,7 +36,7 @@ export function ContactForm() {
   const handleSubmit = event => {
     event.preventDefault();
 
-    dispatch(addContact({ id: nanoid(), name, phone }));
+    dispatch(addContact({ id: nanoid(), name, number }));
     reset();
   };
 
@@ -63,11 +63,11 @@ export function ContactForm() {
         Number
         <InputData
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          value={phone}
+          value={number}
           onChange={handleChange}
         />
       </LabelData>

@@ -8,26 +8,29 @@ export function ContactList() {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
+  console.log(filter);
+  // const visibleContacts = useSelector(getVisibleContacts);
+  // const contacts = useSelector(getContacts);
 
   const handleDeleteContact = deleteId => {
     const action = deleteContact(deleteId);
     dispatch(action);
   };
 
-  const filtredContacts = () => {
-    // const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter)
-    );
-  };
+  // const filteredContacts = () => {
+  //   // const normalizedFilter = filter.toLowerCase();
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(filter)
+  //   );
+  // };
 
-  const filteredContactList = filtredContacts();
+  // const filteredContactList = filteredContacts();
 
   return (
     <ListContacts>
-      {filteredContactList.map(({ name, phone, id }) => (
+      {contacts.map(({ name, number, id }) => (
         <ContactsItem key={id}>
-          {name + ' : ' + phone}
+          {name + ' : ' + number}
           {
             <DeleteBtn
               type="button"
