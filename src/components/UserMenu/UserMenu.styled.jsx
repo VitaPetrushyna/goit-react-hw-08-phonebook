@@ -7,4 +7,5 @@ export const WrapperUser = styled.div`
 `;
 export const UserName = styled.p`
   font-weight: 700;
+  color: #5389e6;
 `;
