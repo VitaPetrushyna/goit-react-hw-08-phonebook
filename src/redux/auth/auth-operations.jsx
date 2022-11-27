@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
+import { toast } from 'react-toastify';
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 // Utility to add JWT
@@ -26,7 +26,16 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      // return thunkAPI.rejectWithValue(
+      //   alert(`Incorrect email or password. Try again!`)
+      // );
+      if (error.response.status === 400) {
+        toast.error('User creation error! Please try again!');
+      } else if (error.response.status === 500) {
+        toast.error('Oops! Server error! Please try later!');
+      } else {
+        toast.error('Something went wrong!');
+      }
     }
   }
 );
@@ -44,7 +53,9 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        toast.error(`Incorrect email or password. Try again!`)
+      );
     }
   }
 );
@@ -59,7 +70,9 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(
+      toast.error('Something went wrong! Please reload the page!')
+    );
   }
 });
 
@@ -85,7 +98,9 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        toast.error('Something went wrong! Please reload the page!')
+      );
     }
   }
 );

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
@@ -40,7 +41,7 @@ export const addContact = createAsyncThunk(
     condition: (data, { getState }) => {
       const { contacts } = getState();
       if (isDublicate(data, contacts.items)) {
-        alert(`${data.name} is already in your contacts list`);
+        toast.info(`${data.name} is already in your contacts list`);
         return false;
       }
     },

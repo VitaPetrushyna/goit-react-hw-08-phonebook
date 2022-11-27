@@ -2,6 +2,8 @@ import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { refreshUser } from 'redux/auth/auth-operations';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useAuth } from 'hooks';
 import { Container } from './App.styled';
@@ -67,6 +69,7 @@ export function App() {
           <Footer />
         </>
       )}
+      <ToastContainer autoClose={3700} position="top-center" />
     </Container>
   );
 }
