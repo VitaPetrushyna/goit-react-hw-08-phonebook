@@ -70,7 +70,9 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(
+      toast.error('Something went wrong! Please reload the page!')
+    );
   }
 });
 
@@ -96,9 +98,7 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(
-        toast.error('Something went wrong! Please reload the page!')
-      );
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
