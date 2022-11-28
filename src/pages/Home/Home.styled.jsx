@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const HomeContainer = styled.div`
-  padding: 200px;
-  /* height: calc(100vh - 50px); */
-  /* display: flex;
+  min-height: 590px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: center; */
 `;
 
 export const HomeTitle = styled.h1`

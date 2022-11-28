@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
-export const FooterBar = styled.div`
-  position: fixed;
+export const FooterContainer = styled.div`
+  margin: 20px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 
-  bottom: 0;
-  width: 1000px;
-  margin-left: 100px;
-  min-height: 40px;
-  padding: 20px 0;
-
-  border-top: 1px solid;
-  border-image: linear-gradient(to right, #2e151b, #1c3334, #376e6f, #2e151b)
-    47% 0%;
+  border-top: 1px solid #2a363b;
 `;
 
 export const FooterText = styled.div`

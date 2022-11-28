@@ -8,7 +8,7 @@ export const WrapperLink = styled(NavLink)`
   font-weight: 700;
   color: #5389e6;
 
-  active {
-    color: #e84a5f;
+  &.active {
+    color: #0d47ac;
   }
 `;

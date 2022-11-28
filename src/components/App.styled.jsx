@@ -20,4 +20,8 @@ export const Container = styled.div`
   padding-left: 20px;
 
   align-items: center;
+
+  /* width: 1200px;
+  margin: 0 auto;
+  padding: 0px 20px; */
 `;

@@ -1,9 +1,9 @@
 import { VscAccount } from 'react-icons/vsc';
-import { FooterBar, FooterText, FooterIcon } from './Footer.styled';
+import { FooterContainer, FooterText, FooterIcon } from './Footer.styled';
 
 export function Footer() {
   return (
-    <FooterBar>
+    <FooterContainer>
       <FooterText>
         © 2022 | Developed by
         <FooterIcon
@@ -14,6 +14,6 @@ export function Footer() {
           <VscAccount size={30} />
         </FooterIcon>
       </FooterText>
-    </FooterBar>
+    </FooterContainer>
   );
 }
